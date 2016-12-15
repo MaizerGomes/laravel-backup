@@ -84,6 +84,15 @@ class BackupJobFactory
                         $dbDumper->setPort($dbConfig['port']);
                     }
 
+                    if (isset($dbConfig['dump'])) {
+                        foreach ($dbConfig['dump'] as $method => $value){
+                            if(method_exists($dbDumper, $method)){
+                                $dbDumper->$method($value);
+                            }
+                        }
+
+                    }
+
                     return $dbDumper;
                     break;
 
