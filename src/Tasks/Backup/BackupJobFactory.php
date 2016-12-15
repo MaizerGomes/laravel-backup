@@ -73,8 +73,8 @@ class BackupJobFactory
                         ->setDbName($dbConfig['database'])
                         ->setUserName($dbConfig['username'])
                         ->setPassword($dbConfig['password'])
-                        ->setDumpBinaryPath(isset($dbConfig['dump_command_path']) ? $dbConfig['dump_command_path'] : '')
-                        ->setTimeout(isset($dbConfig['dump_command_timeout']) ? $dbConfig['dump_command_timeout'] : null);
+                        ->setDumpBinaryPath(isset($dbConfig['dump_command_path']) ? $dbConfig['dump_command_path'] : '');
+//                        ->setTimeout(isset($dbConfig['dump_command_timeout']) ? $dbConfig['dump_command_timeout'] : null);
 
                     if (isset($dbConfig['dump_use_inserts']) && $dbConfig['dump_use_inserts'] == true) {
                         $dbDumper->useInserts();

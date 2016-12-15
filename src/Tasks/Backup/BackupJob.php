@@ -194,7 +194,7 @@ class BackupJob
         $this->dbDumpers->each(function (DbDumper $dbDumper) use ($zip) {
             consoleOutput()->info("Dumping database {$dbDumper->getDbName()}...");
 
-            $fileName = $dbDumper->getDbName().'.sql';
+            $fileName = $dbDumper->getDbName().'.dump';
             $temporaryFile = $this->temporaryDirectory->getPath($fileName);
             $dbDumper->dumpToFile($temporaryFile);
 
